@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loader />
     <poster-background :poster="posterBackground" />
     <movies-list :list="moviesList" @changePoster="onChangePoster" />
     <paginations
@@ -16,10 +17,11 @@ import { mapActions, mapGetters } from "vuex";
 import moviesList from "@/components/MoviesList";
 import posterBackground from "@/components/PosterBackground";
 import paginations from "@/components/Paginations";
+import loader from "@/components/Loader";
 
 export default {
   name: "App",
-  components: { moviesList, posterBackground, paginations },
+  components: { moviesList, posterBackground, paginations, loader },
   data: () => ({
     posterBackground: "",
   }),
