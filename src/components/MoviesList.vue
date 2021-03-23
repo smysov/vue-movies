@@ -4,7 +4,10 @@
     <b-row>
       <template v-if="isExist">
         <b-col v-for="(movie, key) in list" :key="key">
-          <movie-item :movie="movie" />
+          <movie-item
+            :movie="movie"
+            @mouseover.native="onMouseOver(movie.Poster)"
+          />
         </b-col>
       </template>
       <template v-else>
@@ -29,6 +32,11 @@ export default {
       return Boolean(Object.keys(this.list).length);
     },
   },
+  methods: {
+    onMouseOver(poster) {
+      this.$emit("changePoster", poster);
+    },
+  },
 };
 </script>
 
@@ -36,6 +44,7 @@ export default {
 .title {
   font-size: 22px;
   margin-bottom: 50px;
+  color: #fff;
 
   @media (min-width: 768px) {
     font-size: 32px;
