@@ -68,7 +68,10 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 </style>
