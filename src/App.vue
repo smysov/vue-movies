@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <loader />
+    <notifications />
     <poster-background :poster="posterBackground" />
+    <Header />
     <movies-list :list="moviesList" @changePoster="onChangePoster" />
     <paginations
       :current-page="currentPage"
@@ -18,10 +20,19 @@ import moviesList from "@/components/MoviesList";
 import posterBackground from "@/components/PosterBackground";
 import paginations from "@/components/Paginations";
 import loader from "@/components/Loader";
+import Header from "@/components/Header";
+import notifications from "@/components/Notifications";
 
 export default {
   name: "App",
-  components: { moviesList, posterBackground, paginations, loader },
+  components: {
+    moviesList,
+    posterBackground,
+    paginations,
+    loader,
+    Header,
+    notifications,
+  },
   data: () => ({
     posterBackground: "",
   }),
@@ -57,7 +68,10 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 </style>
